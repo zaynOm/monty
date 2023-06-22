@@ -1,6 +1,5 @@
 #include "monty.h"
 
-#define BUFF_SIZE 1024
 int num;
 
 /**
@@ -13,12 +12,11 @@ int num;
 int main(int ac, char **av)
 {
 	FILE *f;
-	char *line = NULL, *op = NULL, *data = NULL;
-	size_t bytes, len = 0;
-	stack_t *stack = NULL;
-	int i, line_num = 0;
 	char buff[100];
+	stack_t *top = NULL;
 	void (*fun)(stack_t **, ui);
+	int bytes, len = 0, line_num = 0;
+	char *line = NULL, *op = NULL, *data = NULL;
 
 
 	if (ac != 2)
@@ -26,11 +24,8 @@ int main(int ac, char **av)
 
 	f = fopen(av[1], "r");
 
-	while ((bytes = getline(&line, &len, f)) != -1)
+	while ((bytes = getline(&line, &len, f)) != EOF)
 	{
-
-		i = 0;
-
 		strcpy(buff, line);
 		op = strtok(buff, "\n\t\r ");
 		data = strtok(NULL, "\n\t\r ");
@@ -39,11 +34,11 @@ int main(int ac, char **av)
 		if (!strcmp(op, "push"))
 		{
 			if (!data || !isnumber(data))
-				op_error(NOT_INT_FOR_PUSH, line_num);
+				op_error(NOT_INT_FOR_PUSH, line_num, op);
 			num = atoi(data);
 		}
 		fun = get_opcode(op, line_num);
-		fun(&stack, line_num);
+		fun(&top, line_num);
 	}
 
 	fclose(f);

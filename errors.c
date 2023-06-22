@@ -6,7 +6,7 @@
  * @line: line number where the error appears
  * @op: opcode
  */
-void op_error(int code, int line, char op)
+void op_error(int code, int line, char *op)
 {
 	char *errors[] = {"L%u: usage: push integer\n",
 		"L%u: can't pint, stack empty\n", "L%u: unknown instruction %s"};

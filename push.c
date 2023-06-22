@@ -8,11 +8,15 @@
 void push(stack_t **top, ui line_number)
 {
 	stack_t *new;
+	(void) line_number;
 
 	new = malloc(sizeof(stack_t));
 	if (!new)
 		simple_error(MALLOC_FIALED);
-	*new = (stack_t) {.n = num, .next = NULL, .prev = NULL};
+	/* *new = (stack_t) {.n = num, .next = NULL, .prev = NULL}; */
+	new->n = num;
+	new->next = NULL;
+	new->prev = NULL;
 
 	if (!*top)
 		*top = new;

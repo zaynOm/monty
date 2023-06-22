@@ -7,8 +7,14 @@
 #include <stdbool.h>
 #include <ctype.h>
 
+#define _GNU_SOURCE
+
+typedef unsigned int ui;
+
 #define NOT_INT_FOR_PUSH 0
 #define CANT_PRINT_EMPTY_STACK 1
+#define INVALID_INSTRUCTION 2
+
 
 #define PROG_USAGE 0
 #define MALLOC_FIALED 1
@@ -42,16 +48,20 @@ typedef struct stack_s
 typedef struct instruction_s
 {
 	char *opcode;
-	void (*f)(stack_t **stack, unsigned int line_number);
+	void (*f)(stack_t **stack, ui line_number);
 } instruction_t;
 
 
 /* error handling */
-void op_error(int code, int line);
+void op_error(int code, int line, char *op);
 void simple_error(int code);
 
 /* stack manipulation */
-void push(stack_t **top, unsigned int line_number);
-void pall(stack_t **top, unsigned int line_number)
+void push(stack_t **top, ui line_number);
+void pall(stack_t **top, ui line_number);
+void (*get_opcode(char *op, int line_number)) (stack_t **, ui);
+
+
+bool isnumber(char *s);
 
 #endif /* MONTY_H */

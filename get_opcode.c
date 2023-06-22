@@ -23,4 +23,5 @@ void (*get_opcode(char *op, int line_number)) (stack_t **, ui)
 		i++;
 	}
 	op_error(INVALID_INSTRUCTION, line_number, op);
+	return (NULL);
 }

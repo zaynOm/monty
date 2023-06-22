@@ -9,6 +9,7 @@
 void pall(stack_t **top, ui line_number)
 {
 	stack_t *tmp = *top;
+	(void) line_number;
 
 	while (tmp)
 	{
