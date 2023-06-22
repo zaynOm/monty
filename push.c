@@ -1,6 +1,11 @@
 #include "monty.h"
 
-void push(stack_t **top, unsigned int line_number)
+/**
+ * push - pushes an element to the stack.
+ * @top: top of the stack
+ * @line_number: current line number in the file
+*/
+void push(stack_t **top, ui line_number)
 {
 	stack_t *new;
 
@@ -11,7 +16,7 @@ void push(stack_t **top, unsigned int line_number)
 
 	if (!*top)
 		*top = new;
-	else 
+	else
 	{
 		new->next = *top;
 		(*top)->prev = new;
