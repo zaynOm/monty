@@ -12,7 +12,7 @@ void push(stack_t **top, ui line_number)
 
 	new = malloc(sizeof(stack_t));
 	if (!new)
-		simple_error(MALLOC_FIALED);
+		simple_error(MALLOC_FAILED);
 	/* *new = (stack_t) {.n = num, .next = NULL, .prev = NULL}; */
 	new->n = num;
 	new->next = NULL;

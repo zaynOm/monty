@@ -1,9 +1,6 @@
 #ifndef MONTY_H
 #define MONTY_H
 
-#define _POSIX_C_SOURCE 200809L
-#define _GNU_SOURCE
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -15,10 +12,8 @@ typedef unsigned int ui;
 #define CANT_PRINT_EMPTY_STACK 1
 #define INVALID_INSTRUCTION 2
 
-
 #define PROG_USAGE 0
-#define MALLOC_FIALED 1
-
+#define MALLOC_FAILED 1
 
 extern int num;
 /**
