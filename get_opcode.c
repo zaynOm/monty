@@ -18,7 +18,15 @@ void (*get_opcode(char *op, int line_number)) (stack_t **, ui)
 		{"swap", swap},
 		{"add", add},
 		{"nop", nop},
-		{NULL, NULL},
+		{"sub", sub},
+		{"div", _div},
+		{"mul", mul},
+		{"mod", mod},
+		{"pchar", pchar},
+		{"pstr", pstr},
+		{"rotl", rotl},
+		{"rotr", rotr},
+		{NULL, NULL}
 	};
 
 	while (ops[i].opcode)

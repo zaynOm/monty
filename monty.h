@@ -65,6 +65,16 @@ void pop(stack_t **top, uint line_number);
 void swap(stack_t **top, uint line_number);
 void add(stack_t **top, uint line_number);
 void nop(stack_t **stack, uint line_number);
+void sub(stack_t **top, uint line_number);
+
+void _div(stack_t **top, uint line_number);
+void mul(stack_t **top, uint line_number);
+void mod(stack_t **top, uint line_number);
+
+void pchar(stack_t **top, uint line_number);
+void pstr(stack_t **top, uint line_number);
+void rotl(stack_t **top, uint line_number);
+void rotr(stack_t **top, uint line_number);
 void free_stack(stack_t **head);
 
 
