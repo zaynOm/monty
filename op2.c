@@ -25,6 +25,6 @@ void add(stack_t **top, uint line_number)
  */
 void nop(stack_t **top, uint line_number)
 {
-	(void)stack;
+	(void)top;
 	(void)line_number;
 }
