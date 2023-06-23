@@ -15,7 +15,7 @@ int main(int ac, char **av)
 	char buff[100];
 	stack_t *top = NULL;
 	void (*fun)(stack_t **, ui);
-	int bytes, line_num = 0;
+	int bytes = 0, line_num = 0;
 	size_t len = 0;
 	char *line = NULL, *op = NULL, *data = NULL;
 
@@ -29,6 +29,9 @@ int main(int ac, char **av)
 		strcpy(buff, line);
 		op = strtok(buff, "\n\t\r ");
 		line_num++;
+
+		if (!op)
+			continue;
 
 		if (!strcmp(op, "push"))
 		{
