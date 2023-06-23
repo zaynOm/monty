@@ -12,7 +12,7 @@ void push(stack_t **top, ui line_number)
 
 	new = malloc(sizeof(stack_t));
 	if (!new)
-		simple_error(MALLOC_FAILED);
+		malloc_err();
 
 	new->n = num;
 	new->next = NULL;
@@ -54,7 +54,7 @@ void pall(stack_t **top, ui line_number)
 void pint(stack_t **top, ui line_number)
 {
 	if (!*top)
-		op_error(CANT_PRINT_EMPTY_STACK, line_number);
+		pint_err(line_number);
 
 	printf("%d\n", (*top)->n);
 }

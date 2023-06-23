@@ -20,9 +20,12 @@ int main(int ac, char **av)
 	char *line = NULL, *op = NULL, *data = NULL;
 
 	if (ac != 2)
-		simple_error(PROG_USAGE);
+		argument_err();
 
 	f = fopen(av[1], "r");
+
+	if (!f)
+		open_err(av[1]);
 
 	while ((bytes = getline(&line, &len, f)) != EOF)
 	{
@@ -37,7 +40,7 @@ int main(int ac, char **av)
 		{
 			data = strtok(NULL, "\n\t\r ");
 			if (!data || is_number(data))
-				op_error(NOT_INT_FOR_PUSH, line_num);
+				int_err(line_num);
 			num = atoi(data);
 		}
 		fun = get_opcode(op, line_num);
@@ -46,5 +49,6 @@ int main(int ac, char **av)
 
 	fclose(f);
 	free(line);
+	free_stack(&top);
 	return (0);
 }

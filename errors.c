@@ -27,14 +27,3 @@ void simple_error(int code)
 	fprintf(stderr, "%s", errors[code]);
 	exit(EXIT_FAILURE);
 }
-
-/**
- * invalid_instruction_err - handels invalid instruction error
- * @op: invalid opcode
- * @line: line number where the error appears
-*/
-void invalid_instruction_err(char *op, int line)
-{
-	fprintf(stderr, "L%u: unknown instruction %s\n", line, op);
-	exit(EXIT_FAILURE);
-}
