@@ -43,6 +43,7 @@ void pall(stack_t **top, ui line_number)
 		printf("%d\n", tmp->n);
 		tmp = tmp->next;
 	}
+	fflush(stdout);
 }
 
 /**

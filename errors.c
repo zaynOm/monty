@@ -9,8 +9,10 @@ void op_error(int code, int line)
 {
 	char *errors[] = {"L%u: usage: push integer\n",
 		"L%u: can't pint, stack empty\n"};
+	char msg[100];
 
-	fprintf(stderr, errors[code], line);
+	sprintf(msg, errors[code], line);
+	fprintf(stderr, "%s", msg);
 	exit(EXIT_FAILURE);
 }
 
