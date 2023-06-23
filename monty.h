@@ -51,12 +51,18 @@ void malloc_err(void);
 void open_err(char *);
 void int_err(ui);
 void pint_err(ui);
+void pop_err(ui);
+void swap_err(ui);
+void add_err(ui);
+void sub_err(ui);
 
 /* stack manipulation */
+void (*get_opcode(char *op, int line_number)) (stack_t **, ui);
 void push(stack_t **top, ui line_number);
 void pall(stack_t **top, ui line_number);
 void pint(stack_t **top, ui line_number);
-void (*get_opcode(char *op, int line_number)) (stack_t **, ui);
+void pop(stack_t **top, uint line_number);
+void swap(stack_t **top, uint line_number);
 void free_stack(stack_t **head);
 
 

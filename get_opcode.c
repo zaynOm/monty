@@ -14,6 +14,8 @@ void (*get_opcode(char *op, int line_number)) (stack_t **, ui)
 		{"push", push},
 		{"pall", pall},
 		{"pint", pint},
+		{"pop", pop},
+		{"swap", swap},
 		{NULL, NULL},
 	};
 
