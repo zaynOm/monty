@@ -22,7 +22,7 @@ void simple_error(int code)
 {
 	char *errors[] = {"USAGE: monty file\n", "Error: malloc failed\n"};
 
-	fprintf(stderr, errors[code]);
+	fprintf(stderr, "%s", errors[code]);
 	exit(EXIT_FAILURE);
 }
 
