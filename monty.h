@@ -11,13 +11,6 @@
 
 typedef unsigned int ui;
 
-#define NOT_INT_FOR_PUSH 0
-#define CANT_PRINT_EMPTY_STACK 1
-#define INVALID_INSTRUCTION 2
-
-#define PROG_USAGE 0
-#define MALLOC_FAILED 1
-
 extern int num;
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
@@ -51,8 +44,6 @@ typedef struct instruction_s
 
 
 /* error handling */
-void op_error(int code, int line);
-void simple_error(int code);
 void invalid_instruction_err(char *op, int line);
 
 void argument_err(void);
