@@ -19,7 +19,6 @@ int main(int ac, char **av)
 	size_t len = 0;
 	char *line = NULL, *op = NULL, *data = NULL;
 
-
 	if (ac != 2)
 		simple_error(PROG_USAGE);
 
@@ -29,11 +28,11 @@ int main(int ac, char **av)
 	{
 		strcpy(buff, line);
 		op = strtok(buff, "\n\t\r ");
-		data = strtok(NULL, "\n\t\r ");
 		line_num++;
 
 		if (!strcmp(op, "push"))
 		{
+			data = strtok(NULL, "\n\t\r ");
 			if (!data || !isnumber(data))
 				op_error(NOT_INT_FOR_PUSH, line_num);
 			num = atoi(data);
