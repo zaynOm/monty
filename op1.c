@@ -4,7 +4,7 @@
  * push - pushes an element to the stack.
  * @top: top of the stack
  * @line_number: current line number in the file
-*/
+ */
 void push(stack_t **top, ui line_number)
 {
 	stack_t *new;
@@ -32,7 +32,7 @@ void push(stack_t **top, ui line_number)
  * pall - prints all the values on the stack, starting from the top
  * @top: top of the stack
  * @line_number: current line number in the file
-*/
+ */
 void pall(stack_t **top, ui line_number)
 {
 	stack_t *tmp = *top;
