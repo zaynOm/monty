@@ -15,7 +15,8 @@ int main(int ac, char **av)
 	char buff[100];
 	stack_t *top = NULL;
 	void (*fun)(stack_t **, ui);
-	int bytes, len = 0, line_num = 0;
+	int bytes, line_num = 0;
+	size_t len = 0;
 	char *line = NULL, *op = NULL, *data = NULL;
 
 
@@ -34,7 +35,7 @@ int main(int ac, char **av)
 		if (!strcmp(op, "push"))
 		{
 			if (!data || !isnumber(data))
-				op_error(NOT_INT_FOR_PUSH, line_num, op);
+				op_error(NOT_INT_FOR_PUSH, line_num);
 			num = atoi(data);
 		}
 		fun = get_opcode(op, line_num);

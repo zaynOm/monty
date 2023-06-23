@@ -1,13 +1,13 @@
 #ifndef MONTY_H
 #define MONTY_H
 
+#define _GNU_SOURCE
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <stdbool.h>
 #include <ctype.h>
-
-#define _GNU_SOURCE
 
 typedef unsigned int ui;
 
@@ -53,12 +53,14 @@ typedef struct instruction_s
 
 
 /* error handling */
-void op_error(int code, int line, char *op);
+void op_error(int code, int line);
 void simple_error(int code);
+void invalid_instruction_err(char *op, int line);
 
 /* stack manipulation */
 void push(stack_t **top, ui line_number);
 void pall(stack_t **top, ui line_number);
+void pint(stack_t **top, ui line_number);
 void (*get_opcode(char *op, int line_number)) (stack_t **, ui);
 
 

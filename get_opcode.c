@@ -13,6 +13,7 @@ void (*get_opcode(char *op, int line_number)) (stack_t **, ui)
 	instruction_t ops[] = {
 		{"push", push},
 		{"pall", pall},
+		{"pint", pint},
 		{NULL, NULL},
 	};
 
@@ -22,6 +23,6 @@ void (*get_opcode(char *op, int line_number)) (stack_t **, ui)
 			return (ops[i].f);
 		i++;
 	}
-	op_error(INVALID_INSTRUCTION, line_number, op);
+	invalid_instruction_err(op, line_number);
 	return (NULL);
 }
