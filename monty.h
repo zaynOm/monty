@@ -7,7 +7,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <stdbool.h>
 #include <ctype.h>
 
 typedef unsigned int ui;
@@ -65,6 +64,6 @@ void pint(stack_t **top, ui line_number);
 void (*get_opcode(char *op, int line_number)) (stack_t **, ui);
 
 
-bool is_number(char *s);
+int is_number(char *s);
 
 #endif /* MONTY_H */

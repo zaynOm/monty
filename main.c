@@ -33,7 +33,7 @@ int main(int ac, char **av)
 		if (!strcmp(op, "push"))
 		{
 			data = strtok(NULL, "\n\t\r ");
-			if (!data || !is_number(data))
+			if (!data || is_number(data))
 				op_error(NOT_INT_FOR_PUSH, line_num);
 			num = atoi(data);
 		}
