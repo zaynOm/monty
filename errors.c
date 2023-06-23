@@ -12,7 +12,7 @@ void op_error(int code, int line)
 	char msg[100];
 
 	sprintf(msg, errors[code], line);
-	dprintf(stderr, "%s", msg);
+	fprintf(stderr, "%s", msg);
 	exit(EXIT_FAILURE);
 }
 
@@ -24,7 +24,7 @@ void simple_error(int code)
 {
 	char *errors[] = {"USAGE: monty file\n", "Error: malloc failed\n"};
 
-	dprintf(stderr, "%s", errors[code]);
+	fprintf(stderr, "%s", errors[code]);
 	exit(EXIT_FAILURE);
 }
 
@@ -35,6 +35,6 @@ void simple_error(int code)
 */
 void invalid_instruction_err(char *op, int line)
 {
-	dprintf(stderr, "L%u: unknown instruction %s\n", line, op);
+	fprintf(stderr, "L%u: unknown instruction %s\n", line, op);
 	exit(EXIT_FAILURE);
 }
