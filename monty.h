@@ -59,7 +59,7 @@ void simple_error(int code);
 void invalid_instruction_err(char *op, int line);
 
 /* stack manipulation */
-void push(stack_t **top, ui line_number);
+void _push(stack_t **top, ui line_number);
 void pall(stack_t **top, ui line_number);
 void pint(stack_t **top, ui line_number);
 void (*get_opcode(char *op, int line_number)) (stack_t **, ui);
