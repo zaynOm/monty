@@ -16,6 +16,8 @@ void (*get_opcode(char *op, int line_number)) (stack_t **, ui)
 		{"pint", pint},
 		{"pop", pop},
 		{"swap", swap},
+		{"add", add},
+		{"nop", nop},
 		{NULL, NULL},
 	};
 

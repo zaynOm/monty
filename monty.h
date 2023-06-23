@@ -63,6 +63,8 @@ void pall(stack_t **top, ui line_number);
 void pint(stack_t **top, ui line_number);
 void pop(stack_t **top, uint line_number);
 void swap(stack_t **top, uint line_number);
+void add(stack_t **top, uint line_number);
+void nop(stack_t **stack, uint line_number);
 void free_stack(stack_t **head);
 
 
