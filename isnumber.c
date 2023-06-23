@@ -1,7 +1,7 @@
 #include "monty.h"
 
 /**
- * isnumber - checks if a string is a valid number
+ * is_number - checks if a string is a valid number
  * @s: string to check
  *
  * Return: true if @s is a valid number, otherwise false
