@@ -6,7 +6,7 @@
  *
  * Return: true if @s is a valid number, otherwise false
 */
-bool isnumber(char *s)
+bool is_number(char *s)
 {
 	int i = 0;
 

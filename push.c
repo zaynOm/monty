@@ -1,11 +1,11 @@
 #include "monty.h"
 
 /**
- * _push - pushes an element to the stack.
+ * push - pushes an element to the stack.
  * @top: top of the stack
  * @line_number: current line number in the file
 */
-void _push(stack_t **top, ui line_number)
+void push(stack_t **top, ui line_number)
 {
 	stack_t *new;
 	(void) line_number;

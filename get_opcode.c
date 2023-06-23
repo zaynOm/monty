@@ -11,7 +11,7 @@ void (*get_opcode(char *op, int line_number)) (stack_t **, ui)
 {
 	int i = 0;
 	instruction_t ops[] = {
-		{"push", _push},
+		{"push", push},
 		{"pall", pall},
 		{"pint", pint},
 		{NULL, NULL},
