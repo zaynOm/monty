@@ -11,7 +11,6 @@
 
 typedef unsigned int ui;
 
-extern int num;
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
@@ -42,40 +41,51 @@ typedef struct instruction_s
 	void (*f)(stack_t **stack, ui line_number);
 } instruction_t;
 
+typedef struct monty
+{
+	FILE *f;
+	stack_t *top;
+	char *line;
+} monty;
+
+extern monty data;
 
 /* error handling */
 void invalid_instruction_err(char *op, int line);
-
 void argument_err(void);
 void malloc_err(void);
 void open_err(char *);
 void int_err(ui);
 void pint_err(ui);
 void pop_err(ui);
-void swap_err(ui);
-void add_err(ui);
-void sub_err(ui);
+void div_by_zero_err(ui);
+void short_stack_err(char *, ui);
+void pchar_err(ui);
+void pchar_oor_err(ui);
+
 
 /* stack manipulation */
 void (*get_opcode(char *op, int line_number)) (stack_t **, ui);
 void push(stack_t **top, ui line_number);
 void pall(stack_t **top, ui line_number);
 void pint(stack_t **top, ui line_number);
-void pop(stack_t **top, uint line_number);
-void swap(stack_t **top, uint line_number);
-void add(stack_t **top, uint line_number);
-void nop(stack_t **stack, uint line_number);
-void sub(stack_t **top, uint line_number);
+void pop(stack_t **top, ui line_number);
+void swap(stack_t **top, ui line_number);
+void add(stack_t **top, ui line_number);
+void nop(stack_t **stack, ui line_number);
+void sub(stack_t **top, ui line_number);
 
-void _div(stack_t **top, uint line_number);
-void mul(stack_t **top, uint line_number);
-void mod(stack_t **top, uint line_number);
+void _div(stack_t **top, ui line_number);
+void mul(stack_t **top, ui line_number);
+void mod(stack_t **top, ui line_number);
 
-void pchar(stack_t **top, uint line_number);
-void pstr(stack_t **top, uint line_number);
-void rotl(stack_t **top, uint line_number);
-void rotr(stack_t **top, uint line_number);
+void pchar(stack_t **top, ui line_number);
+void pstr(stack_t **top, ui line_number);
+void rotl(stack_t **top, ui line_number);
+void rotr(stack_t **top, ui line_number);
+
 void free_stack(stack_t **head);
+void freeall(int);
 
 
 int is_number(char *s);
