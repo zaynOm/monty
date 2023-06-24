@@ -7,7 +7,7 @@
 void open_err(char *filename)
 {
 	fprintf(stderr, "Error: can't open file %s\n", filename);
-	exit(EXIT_FAILURE);
+	 freeall(EXIT_FAILURE);
 }
 
 
@@ -17,7 +17,7 @@ void open_err(char *filename)
 void malloc_err(void)
 {
 	fprintf(stderr, "Error: malloc failed\n");
-	exit(EXIT_FAILURE);
+	 freeall(EXIT_FAILURE);
 }
 
 /**
@@ -26,7 +26,7 @@ void malloc_err(void)
 void argument_err(void)
 {
 	fprintf(stderr, "USAGE: monty file\n");
-	exit(EXIT_FAILURE);
+	 freeall(EXIT_FAILURE);
 }
 
 /**
@@ -37,7 +37,7 @@ void argument_err(void)
 void invalid_instruction_err(char *op, int line)
 {
 	fprintf(stderr, "L%u: unknown instruction %s\n", line, op);
-	exit(EXIT_FAILURE);
+	 freeall(EXIT_FAILURE);
 }
 
 /**
@@ -48,5 +48,5 @@ void invalid_instruction_err(char *op, int line)
 void int_err(ui line)
 {
 	fprintf(stderr, "L%u: usage: push integer\n", line);
-	exit(EXIT_FAILURE);
+	 freeall(EXIT_FAILURE);
 }
