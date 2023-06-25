@@ -7,7 +7,7 @@
 void open_err(char *filename)
 {
 	fprintf(stderr, "Error: can't open file %s\n", filename);
-	 freeall(EXIT_FAILURE);
+	exit(EXIT_FAILURE);
 }
 
 
@@ -26,7 +26,7 @@ void malloc_err(void)
 void argument_err(void)
 {
 	fprintf(stderr, "USAGE: monty file\n");
-	 freeall(EXIT_FAILURE);
+	exit(EXIT_FAILURE);
 }
 
 /**
