@@ -14,6 +14,9 @@ void mod(stack_t **top, ui line_number)
 	if (!tmp || !tmp->next)
 		short_stack_err("mod", line_number);
 
+	if (tmp->n == 0)
+		div_by_zero_err(line_number);
+
 	tmp->next->n %= tmp->n;
 	*top = tmp->next;
 
