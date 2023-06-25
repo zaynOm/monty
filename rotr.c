@@ -8,7 +8,6 @@
 void rotr(stack_t **top, ui line_number)
 {
 	stack_t *tmp = *top;
-	int num;
 	(void)line_number;
 
 	if (!tmp || !tmp->next)
@@ -17,7 +16,8 @@ void rotr(stack_t **top, ui line_number)
 	while (tmp->next)
 		tmp = tmp->next;
 
-	num = (*top)->n;
-	(*top)->n = tmp->n;
-	tmp->n = num;
+	tmp->prev->next = NULL;
+	(*top)->prev = tmp;
+	tmp->next = *top;
+	*top = tmp;
 }
