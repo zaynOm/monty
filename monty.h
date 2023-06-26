@@ -41,11 +41,33 @@ typedef struct instruction_s
 	void (*f)(stack_t **stack, ui line_number);
 } instruction_t;
 
+/**
+ * enum format - data format
+ * @QUEUE: (FIFO)
+ * @STACK: (LIFO)
+ */
+typedef enum format
+{
+	QUEUE,
+	STACK
+} format;
+
+/**
+ * struct monty - wraps data to free it easaly
+ * @f: monty opcode file
+ * @top: top of the stack
+ * @line: readed line from the file
+ * @format: data format of the DS (stack or queue)
+ *
+ * Description: this struct is gonna be used as a global variable
+ * to make freeing memory more easy
+*/
 typedef struct monty
 {
 	FILE *f;
 	stack_t *top;
 	char *line;
+	format format;
 } monty;
 
 extern monty data;
@@ -74,11 +96,9 @@ void swap(stack_t **top, ui line_number);
 void add(stack_t **top, ui line_number);
 void nop(stack_t **stack, ui line_number);
 void sub(stack_t **top, ui line_number);
-
 void _div(stack_t **top, ui line_number);
 void mul(stack_t **top, ui line_number);
 void mod(stack_t **top, ui line_number);
-
 void pchar(stack_t **top, ui line_number);
 void pstr(stack_t **top, ui line_number);
 void rotl(stack_t **top, ui line_number);
@@ -86,6 +106,8 @@ void rotr(stack_t **top, ui line_number);
 
 void free_stack(stack_t **head);
 void freeall(int);
+void queue(stack_t **top, ui line_number);
+void stack(stack_t **top, ui line_number);
 
 
 int is_number(char *s);

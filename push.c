@@ -7,7 +7,7 @@
  */
 void push(stack_t **top, ui line_number)
 {
-	stack_t *new;
+	stack_t *new, *tmp;
 	char *num;
 	(void) line_number;
 
@@ -25,10 +25,19 @@ void push(stack_t **top, ui line_number)
 
 	if (!*top)
 		*top = new;
-	else
+	else if (data.format == STACK)
 	{
 		new->next = *top;
 		(*top)->prev = new;
 		*top = new;
+	}
+	else
+	{
+		tmp = *top;
+		while (tmp->next)
+			tmp = tmp->next;
+
+		tmp->next = new;
+		new->prev = tmp;
 	}
 }

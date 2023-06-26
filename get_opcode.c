@@ -26,6 +26,8 @@ void (*get_opcode(char *op, int line_number)) (stack_t **, ui)
 		{"pstr", pstr},
 		{"rotl", rotl},
 		{"rotr", rotr},
+		{"stack", stack},
+		{"queue", queue},
 		{NULL, NULL}
 	};
 
